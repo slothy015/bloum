@@ -23,10 +23,12 @@ import asyncio
 import json
 from datetime import datetime, timezone
 
+from dotenv import load_dotenv
+load_dotenv()
 # ─────────────────────────────────────────────
 # CONFIG
 # ─────────────────────────────────────────────
-BOT_TOKEN = os.getenv("BLOUM_TOKEN", "MTQ3NDIwMzQ0NDkzOTA2NzYzMw.G6PKqd.yQP3YBhGSrbMwI-aionRf4bOPzGQlfefXu3vTM")
+BOT_TOKEN = os.getenv("BLOUM_TOKEN", "")
 PREFIX = "!"
 BLOUM_COLOR = 0x264D37  # deep forest green
 
@@ -128,7 +130,7 @@ async def on_message(message: discord.Message):
 # ─────────────────────────────────────────────
 STATUS_LIST = [
     discord.Game("with the server"),
-    discord.Activity(type=discord.ActivityType.watching, name="over the community"),
+    discord.Activity(type=discord.ActivityType.watching, name="Over the community"),
     discord.Game(f"{PREFIX}help for commands"),
 ]
 _status_index = 0
