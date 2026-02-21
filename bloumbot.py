@@ -369,7 +369,10 @@ async def announce(ctx: commands.Context, channel: discord.TextChannel, *, messa
 @bot.command(name="say")
 @commands.has_permissions(manage_messages=True)
 async def say(ctx: commands.Context, *, message: str):
-    await ctx.message.delete()
+    try:
+        await ctx.message.delete()
+    except discord.HTTPException:
+        pass
     await ctx.send(message)
 
 
