@@ -9,7 +9,7 @@ Requirements:
 Setup:
     1. Create a bot at https://discord.com/developers/applications
     2. Enable MESSAGE CONTENT INTENT in the bot settings
-    3. Set your BOT_TOKEN below (or use environment variable BLOUM_TOKEN)
+    3. Set BLOUM_TOKEN as an environment variable
     4. Invite bot with scopes: bot + applications.commands
     5. Required permissions: Manage Messages, Send Messages, Embed Links,
        Read Message History, Add Reactions, Manage Roles (for auto-role)
@@ -305,7 +305,6 @@ async def poll(ctx: commands.Context, *, raw: str):
         return await ctx.send(embed=error_embed("Max 10 options allowed."))
 
     if len(options) == 1:
-        # Treat as yes/no poll
         options = ["Yes", "No"]
 
     description = "\n".join(f"{NUMBER_EMOJIS[i]} {opt}" for i, opt in enumerate(options))
